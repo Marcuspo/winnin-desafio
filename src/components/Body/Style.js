@@ -83,3 +83,28 @@ export const LinkDomi = styled.div`
   line-height: 20px;
   padding-top: 9px;
 `
+
+export const DivButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px 0;
+`
+
+export const FinalButton = styled.button`
+  width: 90%;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #6324c6;
+
+  span {
+    font-family: "Mulish", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #fff;
+  }
+`
