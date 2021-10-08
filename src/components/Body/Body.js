@@ -14,7 +14,7 @@ import {
 import { useEffect, useState } from "react"
 
 import { Col, Divider, Row, Spin, Tooltip } from "antd"
-import { format, formatDistance, set } from "date-fns"
+import { format, formatDistance } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import fromUnixTime from "date-fns/fromUnixTime"
 import { LinkOutlined } from "@ant-design/icons/lib/icons"
