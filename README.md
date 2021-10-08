@@ -1,6 +1,6 @@
 # Desafio Winnin - Front-end 
 
-Sistema com leitura da API do [Reddit](!https://www.reddit.com/dev/api/), subreddit [reactjs](!https://www.reddit.com/r/reactjs/).
+Sistema com leitura da API do [Reddit](https://www.reddit.com/dev/api/), subreddit [reactjs](https://www.reddit.com/r/reactjs/).
 
 ## Linguagens usadas:
 
@@ -26,4 +26,4 @@ Sistema com leitura da API do [Reddit](!https://www.reddit.com/dev/api/), subred
 
 ## Sistema rodando online no site da vercel
 
-Segue o link do sistema online > [AQUI](!https://winnin-desafio.vercel.app/)
+Segue o link do sistema online > [AQUI](https://winnin-desafio.vercel.app/)
