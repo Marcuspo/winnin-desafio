@@ -14,7 +14,7 @@ import {
 import { useEffect, useState } from "react"
 
 import { Col, Divider, Row, Spin, Tooltip } from "antd"
-import { format, formatDistance } from "date-fns"
+import { format, formatDistance, set } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import fromUnixTime from "date-fns/fromUnixTime"
 import { LinkOutlined } from "@ant-design/icons/lib/icons"
@@ -45,6 +45,7 @@ function Body() {
 
   function changePageHot() {
     setPage("Hot")
+    setLoading(true)
     fetch("https://www.reddit.com/r/reactjs/hot.json").then((res) => {
       if (res.status !== 200) {
         console.log("ERROR")
@@ -53,6 +54,7 @@ function Body() {
       res.json().then((data) => {
         if (data != null) {
           setDist(data.data.dist)
+          setLoading(false)
           setArticle(data.data.children)
         }
       })
@@ -61,6 +63,7 @@ function Body() {
 
   function changePageNews() {
     setPage("News")
+    setLoading(true)
     fetch("https://www.reddit.com/r/reactjs/new.json").then((res) => {
       if (res.status !== 200) {
         console.log("ERROR")
@@ -69,6 +72,7 @@ function Body() {
       res.json().then((data) => {
         if (data != null) {
           setDist(data.data.dist)
+          setLoading(false)
           setArticle(data.data.children)
         }
       })
@@ -77,6 +81,7 @@ function Body() {
 
   function changePageRising() {
     setPage("Rising")
+    setLoading(true)
     fetch("https://www.reddit.com/r/reactjs/rising.json").then((res) => {
       if (res.status !== 200) {
         console.log("ERROR")
@@ -85,6 +90,7 @@ function Body() {
       res.json().then((data) => {
         if (data != null) {
           setDist(data.data.dist)
+          setLoading(false)
           setArticle(data.data.children)
         }
       })
@@ -123,28 +129,13 @@ function Body() {
           if (data != null) {
             setDist(data.data.dist)
             console.log(dist)
+
             setArticle(data.data.children)
           }
         })
       })
     }
     if (page === "Rising") {
-      console.log("destaque")
-      fetch(`https://www.reddit.com/r/reactjs/rising.json?limit=${50}`).then(
-        (res) => {
-          if (res.status !== 200) {
-            console.log("ERROR")
-            return
-          }
-          res.json().then((data) => {
-            if (data != null) {
-              setDist(data.data.dist)
-              console.log(dist)
-              setArticle(data.data.children)
-            }
-          })
-        }
-      )
     }
   }
 
@@ -215,7 +206,11 @@ function Body() {
                         <Col span={22}>
                           <FirstText>
                             {article.data.title}{" "}
-                            <a href={article.data.url} target="_blank">
+                            <a
+                              href={article.data.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
                               <LinkOutlined twoToneColor="#52c41a" />
                             </a>
                           </FirstText>
