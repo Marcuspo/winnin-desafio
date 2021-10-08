@@ -34,7 +34,14 @@ export const Loading = styled.div`
   align-items: center;
 `
 
-export const Article = styled.div``
+export const Article = styled.div`
+  @media screen and (max-width: 400px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+`
 
 export const TextArticle = styled.div`
   flex: 0%;
@@ -62,6 +69,12 @@ export const Thumbnail = styled.img`
   margin: 12px;
   border-radius: 8px;
   flex: 0%;
+  @media screen and (max-width: 400px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 80px;
+  }
 `
 
 export const FirstText = styled.h1`
